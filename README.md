@@ -34,7 +34,7 @@ The core engineering challenge: Canvas, Todoist, and Notion each use entirely di
 ### Landing Page
 > Animated particle background with glassmorphism cards — live orbital ring effect and full page scroll
 
-![Landing Page](docs/screenshots/landing-preview.gif)
+![Landing Page](docs/screenshots/landing-preview.gif?v=2)
 
 ### Dashboard
 > Three-panel layout — live service connections, sync history, and auto-sync scheduler all in one view
