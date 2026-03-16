@@ -1,0 +1,213 @@
+/* ── Register Redesign (Matching StartPage Theme) ────────────────── */
+
+.auth-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 24px;
+}
+
+.reveal {
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.reveal-up {
+    transform: translateY(30px);
+}
+
+.in-view .reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 420px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+    color: #fff;
+    border-radius: 25px;
+    padding: 40px;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+    position: relative;
+    z-index: 10;
+}
+
+.wrapper:hover {
+    border-color: rgba(255, 255, 255, .35);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .3);
+}
+
+.auth-title {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.7) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 24px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    outline: none;
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 0 45px 0 20px;
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.input-box input:focus {
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.input-box input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    opacity: 0.7;
+}
+
+.auth-button {
+    width: 100%;
+    padding: 12px;
+    background: #fff;
+    color: #333;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.auth-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    background: #f8f8f8;
+}
+
+.login-link {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 24px;
+    opacity: 0.8;
+}
+
+.login-link p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link p a:hover {
+    text-decoration: underline;
+}
+
+/* ── Checkbox / Container Styles ────────────────── */
+
+.wrapper .container {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    margin: -10px 0 24px;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+}
+
+.wrapper .container:hover {
+    opacity: 1;
+}
+
+.terms-text {
+    flex: 1;
+    font-weight: 300;
+}
+
+.container input {
+    display: none;
+}
+
+.container svg {
+    width: 18px;
+    height: 18px;
+    overflow: visible;
+    flex-shrink: 0;
+}
+
+.path {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.4);
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease, stroke 0.3s ease;
+    stroke-dasharray: 241 9999999;
+    stroke-dashoffset: 0;
+}
+
+.container input:checked~svg .path {
+    stroke: #fff;
+    stroke-dasharray: 70.5 9999999;
+    stroke-dashoffset: -262.2;
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
+}
+
+/* ── Responsive Refinements ───────────────────── */
+
+@media (max-width: 480px) {
+    .auth-container {
+        padding: 16px;
+    }
+
+    .wrapper {
+        padding: 32px 24px;
+        border-radius: 20px;
+    }
+
+    .auth-title {
+        font-size: 28px;
+        margin-bottom: 16px;
+    }
+
+    .input-box {
+        margin: 16px 0;
+    }
+
+    .wrapper .container {
+        margin-bottom: 16px;
+    }
+
+    .terms-text {
+        font-size: 13px;
+    }
+}

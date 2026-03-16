@@ -1,0 +1,301 @@
+/* ── SettingsPage Redesign (Matching StartPage Theme) ────────────────── */
+
+.auth-container.settings-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  /* Changed to flex-start for top alignment */
+  justify-content: center;
+  position: relative;
+  padding: 100px 40px 20px;
+  /* Synchronized with Dashboard padding */
+}
+
+/* ── Reveal Animations ───────────────────────────── */
+
+.reveal {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.reveal-up {
+  transform: translateY(30px);
+}
+
+.in-view .reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Glass Card ────────────────────────────────── */
+
+.wrapper {
+  width: 100%;
+  max-width: 480px;
+  /* Slightly wider for API cards */
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, .2);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+  color: #fff;
+  border-radius: 25px;
+  padding: 30px 40px;
+  /* Reduced from 40px for vertical compaction */
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.wrapper:hover {
+  border-color: rgba(255, 255, 255, .35);
+  box-shadow: 0 0 30px rgba(0, 0, 0, .3);
+}
+
+.auth-title {
+  font-size: 30px;
+  /* Slightly smaller */
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 24px;
+  /* Reduced from 32px */
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Settings Content ─────────────────────────────── */
+
+.settings-section {
+  width: 100%;
+  margin-top: 24px;
+  /* Standardized small section gap */
+}
+
+.section-label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  opacity: 0.7;
+  text-align: center;
+}
+
+.api-selection-grid {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.api-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  /* Reduced from 24px */
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.api-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-4px);
+}
+
+.api-card.selected {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.api-card-icon {
+  font-size: 24px;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+.api-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.api-card.selected .api-card-title {
+  opacity: 1;
+}
+
+/* ── Action Button (Premium Glass Style) ───────────── */
+.auth-button {
+  width: 100%;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.auth-button:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.auth-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.save-settings-btn {
+  margin-top: 30px;
+  /* Replaced inline 40px */
+}
+
+/* ── Manage Integrations ────────────────────────── */
+
+.integrations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* Reduced from 16px */
+  margin-top: 16px;
+  /* Reduced from 24px */
+}
+
+.integration-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  /* Reduced vertical padding from 16px */
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.integration-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.integration-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.integration-icon {
+  font-size: 20px;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+}
+
+.integration-name {
+  font-size: 15px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.integration-status {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  opacity: 0.6;
+}
+
+.integration-status.linked {
+  background: rgba(255, 255, 255, 0.15);
+  opacity: 1;
+  color: #fff;
+}
+
+.unlink-button {
+  background: transparent;
+  color: #ff4d4d;
+  border: 1px solid rgba(255, 77, 77, 0.3);
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.unlink-button:hover {
+  background: rgba(255, 77, 77, 0.1);
+  border-color: #ff4d4d;
+  box-shadow: 0 0 10px rgba(255, 77, 77, 0.2);
+}
+
+/* ── Responsive Refinements ───────────────────── */
+
+@media (max-width: 900px) {
+  .auth-container.settings-container {
+    padding: 140px 24px 40px;
+  }
+
+  .wrapper {
+    padding: 32px 24px;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-container.settings-container {
+    padding: 120px 16px 40px;
+  }
+
+  .auth-title {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+
+  .api-selection-grid {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .api-card {
+    padding: 20px;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 16px;
+  }
+
+  .api-card-icon {
+    margin-bottom: 0;
+    font-size: 20px;
+  }
+
+  .integration-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .integration-info {
+    justify-content: flex-start;
+  }
+
+  .unlink-button {
+    width: 100%;
+    padding: 10px;
+  }
+}

@@ -1,0 +1,167 @@
+/* Popup container styles */
+#popup-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: auto;
+  max-width: 450px;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  pointer-events: none;
+  /* Allow clicking through container gap */
+  z-index: 10000;
+}
+
+/* Popup notification styles */
+.popup {
+  width: 90%;
+  max-width: 400px;
+  min-height: 60px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 12px;
+  position: relative;
+  /* Default Desktop Animation: Slide Up */
+  animation: slide-up 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
+    fade-out-down 0.5s ease 4.5s forwards;
+  pointer-events: auto;
+  /* Re-enable clicks for individual popups */
+  transition: transform 0.3s ease;
+}
+
+.popup:hover {
+  transform: scale(1.02);
+}
+
+/* Desktop Animations */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fade-out-down {
+  to {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+}
+
+/* Mobile/Tablet Animations (Top position) */
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fade-out-up {
+  to {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+}
+
+.popup span {
+  font-size: 15px;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.popup-icon {
+  margin-right: 15px;
+  font-size: 28px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Success vs Error specific refinements if needed */
+.popup.success {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.popup.error {
+  border-color: rgba(255, 100, 100, 0.3);
+}
+
+/* Progress bar at bottom */
+.popup::after {
+  content: '';
+  position: absolute;
+  left: 20px;
+  bottom: 0;
+  width: calc(100% - 40px);
+  height: 3px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  animation: progress-bar 4.7s linear forwards;
+  transform-origin: left;
+}
+
+@keyframes progress-bar {
+  to {
+    transform: scaleX(0);
+  }
+}
+
+/* Responsive Adjustments - Mobile and Tablets */
+@media (max-width: 1024px) {
+  #popup-container {
+    bottom: auto;
+    right: auto;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    align-items: center;
+  }
+
+  .popup {
+    /* Mobile Animation: Slide Down */
+    animation: slide-down 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
+      fade-out-up 0.5s ease 4.5s forwards;
+  }
+}
+
+/* Specific Phone Adjustments */
+@media (max-width: 480px) {
+  #popup-container {
+    top: 10px;
+  }
+
+  .popup {
+    width: 85%;
+    border-radius: 16px;
+    padding: 10px 16px;
+  }
+
+  .popup span {
+    font-size: 14px;
+  }
+
+  .popup-icon {
+    font-size: 24px;
+    margin-right: 12px;
+  }
+}

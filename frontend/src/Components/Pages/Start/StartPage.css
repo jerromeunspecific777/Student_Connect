@@ -1,0 +1,533 @@
+/* ── Start Page ─────────────────────────────────── */
+
+.start-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 100px auto 60px;
+    padding: 0 24px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
+
+/* ── Ambient Particles ───────────────────────────── */
+
+.start-container>*:not(.particle-background) {
+    position: relative;
+    z-index: 1;
+}
+
+/* ══════════════════════════════════════════════════
+   Scroll‑reveal animation system
+   ══════════════════════════════════════════════════ */
+
+.reveal {
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.reveal-up {
+    transform: translateY(50px);
+}
+
+.reveal.in-view {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Stagger children inside an in-view parent */
+.stagger-item {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition-delay: calc(var(--i, 0) * 0.12s);
+}
+
+.in-view .stagger-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Hero ─────────────────────────────────────────── */
+
+.start-hero {
+    text-align: center;
+    padding: 40px 0 10px;
+}
+
+.start-hero.reveal {
+    transform: scale(0.97);
+}
+
+.start-hero-title {
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 14px;
+    background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.7) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.start-hero .start-tagline {
+    font-size: 18px;
+    font-weight: 300;
+    opacity: 0.85;
+    margin-bottom: 28px;
+}
+
+.start-cta {
+    display: inline-block;
+    padding: 12px 40px;
+    background: #fff;
+    color: #333;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.start-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, .3);
+}
+
+/* ── Glass Card (shared) ─────────────────────────── */
+
+.start-card {
+    width: 100%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    border-radius: 25px;
+    padding: 32px 40px;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.start-card:hover {
+    border-color: rgba(255, 255, 255, .35);
+    box-shadow: 0 0 20px rgba(0, 0, 0, .3);
+    transform: translateY(-2px);
+}
+
+.start-card h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.start-card p {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.7;
+    opacity: 0.9;
+    text-align: center;
+}
+
+/* ── Mouse-tracking glow on cards ────────────────── */
+
+.glow-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.glow-card::after {
+    content: '';
+    position: absolute;
+    top: var(--glow-y, -200px);
+    left: var(--glow-x, -200px);
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            rgba(255, 255, 255, 0.08) 0%,
+            transparent 70%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+    z-index: 0;
+}
+
+.glow-card>* {
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Integration Flow ────────────────────────────── */
+
+.start-integrations {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+
+.start-integration-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Pulsing / breathing icon circles */
+.start-icon-circle {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, .25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pulse-icon {
+    animation: icon-breathe 3s ease-in-out infinite;
+    animation-delay: calc(var(--i, 0) * 0.5s);
+}
+
+@keyframes icon-breathe {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 16px 4px rgba(255, 255, 255, 0.12);
+    }
+}
+
+.start-icon-circle:hover {
+    border-color: rgba(255, 255, 255, .55);
+    transform: scale(1.12);
+    box-shadow: 0 0 20px 6px rgba(255, 255, 255, 0.15);
+}
+
+.start-integration-item span {
+    font-size: 13px;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+/* Animated SVG flow arrows */
+.start-flow-arrow {
+    align-self: center;
+    padding-bottom: 22px;
+    display: flex;
+    align-items: center;
+}
+
+.start-flow-arrow svg path {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    animation: arrow-travel 2s ease-in-out infinite;
+    animation-delay: calc(var(--i, 0) * 0.3s);
+}
+
+@keyframes arrow-travel {
+    0% {
+        stroke-dashoffset: 50;
+        opacity: 0.3;
+    }
+
+    50% {
+        stroke-dashoffset: 0;
+        opacity: 0.8;
+    }
+
+    100% {
+        stroke-dashoffset: -50;
+        opacity: 0.3;
+    }
+}
+
+.start-divider-text {
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0.55;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    align-self: center;
+    padding-bottom: 22px;
+}
+
+/* ── Steps ───────────────────────────────────────── */
+
+.start-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.start-step {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: transform 0.25s ease;
+}
+
+.start-step:hover {
+    transform: translateX(6px);
+}
+
+.start-step-number {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, .25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.start-step:hover .start-step-number {
+    border-color: rgba(255, 255, 255, .5);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+}
+
+.start-step-text {
+    font-size: 15px;
+    font-weight: 300;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+/* ── Hero Buttons ──────────────────────────────────── */
+
+.start-hero-buttons {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-cta-outline {
+    display: inline-block;
+    padding: 12px 40px;
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid rgba(255, 255, 255, .35);
+    border-radius: 40px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.start-cta-outline:hover {
+    border-color: rgba(255, 255, 255, .7);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.08);
+}
+
+/* ── Bottom CTA ──────────────────────────────────── */
+
+.start-bottom-cta {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.start-bottom-cta p {
+    font-size: 14px;
+    font-weight: 300;
+    opacity: 0.7;
+    margin-top: 14px;
+}
+
+.start-bottom-cta p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.start-bottom-cta p a:hover {
+    text-decoration: underline;
+}
+
+/* ── Video Popup Modal ───────────────────────────── */
+
+.video-popup-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: popup-fade-in 0.3s forwards;
+    padding: 24px;
+}
+
+.video-popup-content {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    background: #000;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: scale(0.95);
+    animation: popup-scale-up 0.3s 0.1s forwards;
+    overflow: hidden;
+}
+
+.video-popup-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.2s ease, transform 0.2s ease;
+    backdrop-filter: blur(4px);
+}
+
+.video-popup-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 Aspect Ratio */
+    height: 0;
+    background: #000;
+}
+
+.video-placeholder-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.popup-video-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    display: block;
+    z-index: 1;
+}
+
+/* ── Responsive Refinements ───────────────────── */
+
+@media (max-width: 900px) {
+    .start-container {
+        margin-top: 80px;
+        gap: 40px;
+    }
+
+    .start-hero-title {
+        font-size: 40px;
+    }
+
+    .start-card {
+        padding: 24px;
+    }
+
+    .start-card h2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .start-integrations {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .start-flow-arrow,
+    .start-divider-text {
+        padding-bottom: 0;
+        transform: rotate(90deg);
+        /* Rotate arrows for vertical flow */
+    }
+
+    .start-hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .start-cta,
+    .start-cta-outline {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .start-hero-title {
+        font-size: 32px;
+    }
+
+    .start-hero .start-tagline {
+        font-size: 16px;
+    }
+
+    .start-step-number {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+    }
+}
+
+@keyframes popup-fade-in {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes popup-scale-up {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
