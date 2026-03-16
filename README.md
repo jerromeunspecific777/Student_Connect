@@ -174,7 +174,7 @@ Client (Browser)                          Server
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/student-connect.git
+git clone https://github.com/riyonp23/student-connect.git
 cd student-connect
 ```
 
@@ -352,8 +352,8 @@ student-connect/
 
 **Riyon** — Computer Science Student, Class of 2027
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin)](https://linkedin.com/in/YOUR_LINKEDIN)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=flat&logo=github)](https://github.com/YOUR_USERNAME)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin)](https://linkedin.com/in/riyonpraveen)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=flat&logo=github)](https://github.com/riyonp23)
 
 ---
 
