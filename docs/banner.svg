@@ -302,7 +302,7 @@
     <stop offset="0%"   stop-color="white" stop-opacity="0.04"/>
     <stop offset="100%" stop-color="white" stop-opacity="0"/>
   </radialGradient>
-  <ellipse cx="640" cy="195" rx="300" ry="55" fill="url(#textBg)"/>
+  <ellipse cx="640" cy="195" rx="480" ry="70" fill="url(#textBg)"/>
 
   <!-- thin centered divider line under tagline -->
   <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
@@ -312,7 +312,7 @@
     <stop offset="70%"  stop-color="white" stop-opacity="0.22"/>
     <stop offset="100%" stop-color="white" stop-opacity="0"/>
   </linearGradient>
-  <line x1="340" y1="248" x2="940" y2="248" stroke="url(#lineGrad)" stroke-width="0.6"/>
+  <line x1="280" y1="250" x2="1000" y2="250" stroke="url(#lineGrad)" stroke-width="0.6"/>
 
 
   <!-- ── DRIFTING PARTICLES — visibly animated, spread across field ── -->
@@ -368,25 +368,25 @@
   <circle cx="1262" cy="265" r="1.1" fill="white" style="animation:drift3 7.6s ease-in-out infinite; animation-delay:0.8s"/>
 
   <!-- ── TITLE ── -->
-  <text x="640" y="196"
+  <text x="640" y="188"
     font-family="'Trebuchet MS', 'Gill Sans', 'Optima', sans-serif"
-    font-size="46"
+    font-size="82"
     font-weight="700"
-    letter-spacing="10"
+    letter-spacing="14"
     fill="white"
     text-anchor="middle"
-    opacity="0.96"
+    opacity="0.97"
     filter="url(#titleGlow)"
     style="animation:float 7s ease-in-out infinite">
     STUDENT CONNECT
   </text>
 
   <!-- ── TAGLINE ── -->
-  <text x="640" y="228"
+  <text x="640" y="226"
     font-family="'Trebuchet MS', 'Gill Sans', 'Optima', sans-serif"
-    font-size="13"
+    font-size="14"
     font-weight="400"
-    letter-spacing="4"
+    letter-spacing="5"
     fill="rgba(168,178,200,0.88)"
     text-anchor="middle"
     style="animation:float 7s ease-in-out infinite; animation-delay:.4s">
